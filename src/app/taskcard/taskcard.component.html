@@ -1,0 +1,15 @@
+<ng-container >
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>{{ tasks.Title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{ tasks.Description }}</ion-card-content>
+    <br><br>
+    <ion-grid>
+      <ion-col>
+        <ion-label>Form Completed:</ion-label>
+        <ion-checkbox formControlName="Done"></ion-checkbox>
+      </ion-col>
+    </ion-grid>
+  </ion-card>
+</ng-container>

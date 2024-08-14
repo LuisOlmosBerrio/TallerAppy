@@ -1,0 +1,59 @@
+<ion-content padding >
+  <div class="form-container">
+  <form [formGroup]="taskForm" (ngSubmit)="save()">
+    <ion-grid>
+      <ion-col>
+        <ion-input formControlName="Title" type="text" placeholder="Enter your title"></ion-input>
+      </ion-col>
+    </ion-grid>
+
+    <div class="error-messages">
+      <ng-container *ngFor="let error of error_messages.Title">
+        <div class="error-message"
+          *ngIf="taskForm.get('Title')?.hasError(error.type) && (taskForm.get('Title')?.dirty || taskForm.get('Title')?.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-grid>
+      <ion-col>
+        <ion-input formControlName="Description" type="text" placeholder="Enter your description"></ion-input>
+      </ion-col>
+    </ion-grid>
+
+    <div class="error-messages">
+      <ng-container *ngFor="let error of error_messages.Description">
+        <div class="error-message"
+          *ngIf="taskForm.get('Description')?.hasError(error.type) && (taskForm.get('Description')?.dirty || taskForm.get('Description')?.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-grid>
+      <ion-col>
+        <ion-button type="Submit" [disabled]="!taskForm.valid" shape="round" size="default" color="primary"
+          expand="block">Submit</ion-button>
+      </ion-col>
+    </ion-grid>
+
+    
+  </form>
+
+  <br><br>
+
+  <app-taskcard *ngFor="let tasks of tasks" [tasks]="tasks">
+  </app-taskcard>
+
+  <ng-template #noTasks>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Error</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>The card is empty. Please add a task first.</ion-card-content>
+    </ion-card>
+  </ng-template>
+  </div>
+  
+</ion-content>
