@@ -8,7 +8,7 @@
     <ion-grid>
       <ion-col>
         <ion-label>Form Completed:</ion-label>
-        <ion-checkbox formControlName="Done"></ion-checkbox>
+        <ion-checkbox (ionChange)="onCheckboxChange($event)"></ion-checkbox>
       </ion-col>
     </ion-grid>
   </ion-card>
